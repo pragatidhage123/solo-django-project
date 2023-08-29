@@ -1,0 +1,72 @@
+<!-- ################################ DELETE BOOK DATA USING FORM TYPE ########################## -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+                <!-- ##### EMBEDDED STYLING ##### -->
+<style>
+    table{
+        width : 100%
+    }
+    th,td{
+        padding : 10px 20px
+    }
+
+
+
+
+
+</style>
+<body>
+           <!-- ##### IN LINE STYLING ##### -->
+    <h1 style="text-align:center"> REMOVE BOOK DATA </h1>  
+     
+
+    <table border="1px">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>BOOK_NAME</th>
+                <th>BOOK_AUTHOR</th>
+                <th>NO_OF_PAGES</th>
+                <th>PUBLISH_DATE</th>
+                <th>EMAIL_ID</th>
+                <th>BOOK_PRICE</th>
+                <th>ACTION</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+
+            <tr>
+
+                <td>{{book.id}}</td>
+                <td>{{book.book_name}}</td>
+                <td>{{book.book_author}}</td>
+                <td>{{book.no_of_pages}}</td>
+                <td>{{book.publish_date}}</td>
+                <td>{{book.Email_id}}</td>
+                <td>{{book.book_price}}</td>
+                <td>
+                    <form action="{% url 'book_data' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{book.id}}">
+                        <button type="submit">Delete</button>
+
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

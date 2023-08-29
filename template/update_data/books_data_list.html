@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    th,td{
+        padding : 10px 5px;
+        text-align : center;
+    }
+</style>
+<body>
+
+    <h1 style="text-align:center;padding:20px"> BOOKS DATA LIST</h1>
+
+    <table border="1px" style="width:100%;">
+        <thead>
+
+            <tr>
+                <th>SR</th>
+                <th>Book_Name</th>
+                <th>Book_Author</th>
+                <th>No_Of_Pages</th>
+                <th>Publish_Date</th>
+                <th>Email_Id</th>
+                <th>Book_Price</th>
+                <th>ID</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <!-- {{books}} -->
+
+            {% for book in books %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{book.book_name}}</td>
+                <td>{{book.book_author}}</td>
+                <td>{{book.no_of_pages}}</td>
+                <td>{{book.publish_date}}</td>
+                <td>{{book.email_id}}</td>
+                <td>{{book.book_price}}</td>
+                <td>{{book.id}}</td>
+                <td>
+
+                    <button>
+                        <a href="/book/books-data-update/{{book.id}}">Update</a>
+                    </button>
+                </td>
+        
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+    
+</body>
+</html>

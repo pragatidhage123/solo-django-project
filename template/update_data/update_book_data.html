@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    h1{
+        text-align : center;
+        padding : 20px;
+    }
+
+    input{
+        margin : 5px 0;
+        height : 30px;
+        width : 300px;
+    }
+
+    form{
+        /* border : 1px solid red; */
+        display : flex;
+        flex-direction : column;
+        /* justify-content : center; */  
+        align-items : center;
+    }
+
+    button{
+        width : 150px;
+        height : 40px;
+    }
+</style>
+<body>
+
+    <h1> UPDATE BOOK DATA </h1>
+    
+    <!-- {{book}} -->
+
+    <form action="/book/books-data-update/{{book.id}}/" method="post">
+        {% csrf_token %}
+
+        <input type="text" name="book_name" placeholder="Enter your book name" value="{{book.book_name}}"> <br>
+        <input type="text" name="book_author" placeholder="Enter the author name" value="{{book.book_author}}"> <br>
+        <input type="number" name="no_of_pages" placeholder="Enter the no of pages" value="{{book.no_of_pages}}"> <br>
+        <input type="date" name="publish_date" placeholder="Enter the publish date" value="{{book.publish_date}}"> <br>
+        <input type="text" name="email_id" placeholder="Enter the email id" value="{{book.email_id}}"> <br>
+        <input type="number" name="book_price" placeholder="Enter the book price" value="{{book.book_price}}"> <br>
+
+        <button type="submit">Update Data</button>
+
+    </form>
+
+
+    
+</body>
+</html>

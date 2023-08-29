@@ -1,0 +1,77 @@
+<!-- ##################### DELETE BOOK DATA USING URL TYPE ######################## -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+                
+<style>
+    table{
+        width : 100%
+    }
+    th,td{
+        padding : 10px 20px
+    }
+
+
+
+
+
+</style>
+<body>
+           
+    <h1 style="text-align:center">  BOOK DATA </h1>
+    
+     
+
+    <table border="1px">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>BOOK_NAME</th>
+                <th>BOOK_AUTHOR</th>
+                <th>NO_OF_PAGES</th>
+                <th>PUBLISH_DATE</th>
+                <th>EMAIL_ID</th>
+                <th>BOOK_PRICE</th>
+                <th>ACTION</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+
+            <tr>
+
+                <td>{{book.id}}</td>
+                <td>{{book.book_name}}</td>
+                <td>{{book.book_author}}</td>
+                <td>{{book.no_of_pages}}</td>
+                <td>{{book.publish_date}}</td>
+                <td>{{book.email_id}}</td>
+                <td>{{book.book_price}}</td>
+                <td>
+                    
+                    <button> <a href="/book/book-add-data/">ADD</a></button>
+                    
+                    <button><a href="/book/book-data-delete/{{book.id}}/">Delete</a></button>
+                    <button><a href="/book/book-data-show/{{book.id}}/">Show</a></button>
+                    <button>
+                        <a href="/book/books-data-update/{{book.id}}">Update</a>
+                    </button>
+                    
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>
